@@ -1,14 +1,14 @@
 from django.shortcuts import render
 
-from news.models import New
+from news.models import New, Tag
 
 
 def home_page(request):
     news = New.objects.all()
-    # tags = Tag.objects.all()
+    tags = Tag.objects.all()
     context = {
         "news": news,
-        # "tags":tags,
+        "tags":tags,
     }
     return render(request, 'news/index.html', context=context)
 
